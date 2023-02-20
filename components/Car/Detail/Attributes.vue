@@ -1,21 +1,22 @@
+<script setup>
+const props = defineProps({
+  features: Array,
+});
+</script>
+
 <template>
   <div class="w-full mt-5 mb-5">
     <ul class="">
-      <li class="flex items-center mb-1">
-        <img class="w-[25px] h-[25px] mr-2" src="@/assets/icons/check.png" />
-        No Accidents
-      </li>
-      <li class="flex items-center mb-1">
-        <img class="w-[25px] h-[25px] mr-2" src="@/assets/icons/check.png" />
-        Low KM
-      </li>
-      <li class="flex items-center mb-1">
-        <img class="w-[25px] h-[25px] mr-2" src="@/assets/icons/check.png" />
-        Hybrid
-      </li>
-      <li class="flex items-center mb-1">
-        <img class="w-[25px] h-[25px] mr-2" src="@/assets/icons/check.png" />
-        Leather Interior
+      <li
+        v-for="feature in features"
+        :key="feature"
+        class="flex items-center mb-1"
+      >
+        <NuxtImg
+          class="w-[25px] h-[25px] mr-2"
+          src="@/assets/icons/check.png"
+        />
+        {{ feature }}
       </li>
     </ul>
   </div>

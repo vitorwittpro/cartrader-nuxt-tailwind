@@ -11,23 +11,25 @@ const handleSearch = () => {
 </script>
 
 <template>
-  <div
-    class="font-serif w-[1000px] text-2xl rounded-full bg-white flex justify-between overflow-hidden drop-shadow-2xl mx-auto"
-    :class="errorCity ? 'border-2 border-red-500 shake' : ''"
-  >
-    <input
-      class="w-full py-3 px-5 text-2xl rounded-l-full focus:outline-none"
-      type="text"
-      v-model="city"
-      placeholder="Search by city..."
-    />
-    <button
-      class="py-3 px-20 bg-sky-500 text-white"
-      type="submit"
-      @click="handleSearch"
+  <div>
+    <div
+      class="font-serif w-[1000px] text-2xl rounded-full bg-white flex justify-between overflow-hidden drop-shadow-2xl mx-auto"
+      :class="errorCity ? 'border-2 border-red-500 shake' : ''"
     >
-      Search
-    </button>
+      <input
+        class="w-full py-3 px-5 text-2xl rounded-l-full focus:outline-none"
+        type="text"
+        v-model="city"
+        placeholder="Search by city..."
+      />
+      <button
+        class="py-3 px-20 bg-sky-500 text-white"
+        type="submit"
+        @click="handleSearch"
+      >
+        Search
+      </button>
+    </div>
   </div>
 </template>
 
