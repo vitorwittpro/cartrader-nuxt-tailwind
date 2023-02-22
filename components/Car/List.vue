@@ -1,9 +1,18 @@
 <script setup>
-import { useFavoriteStore } from "~~/stores/favorite.vue";
-
 const { cars } = useCars();
 
-const useFavStore = useFavoriteStore();
+const favorite = useLocalStorage("favorite", {});
+
+const handleFavorited = (id) => {
+  if (id in favorite.value) {
+    delete favorite.value[id];
+  } else {
+    favorite.value = {
+      ...favorite.value,
+      [id]: true,
+    };
+  }
+};
 </script>
 
 <template>
@@ -12,8 +21,8 @@ const useFavStore = useFavoriteStore();
       v-for="car in cars"
       :key="car.id"
       :car="car"
-      @favorite="useFavStore.handleFavorited(car.id)"
-      :favorited="car.id in useFavStore.localStore"
+      @favorite="handleFavorited(car.id)"
+      :favorited="car.id in favorite"
     />
   </div>
 </template>
